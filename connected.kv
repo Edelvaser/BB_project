@@ -1,0 +1,83 @@
+#!text
+#:kivy 1.7.2
+#:import Factory kivy.factory.Factory
+
+#:set color_button '5ED05B'  # brown
+#:set color_button_pressed '5ED05B' #(0.659, 0.522, 0.431, 1)  # darker brown
+#:set color_font   (0.957, 0.890, 0.843, 1)  # off white
+
+<MySpinnerOption@SpinnerOption>:
+    background_color: color_button if self.state == 'down' else color_button_pressed
+    # background_down: 'atlas://data/images/defaulttheme/button'
+    color: color_font
+
+<Connected>:
+    BoxLayout:
+        id: pers_acc
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 10
+
+        Label:
+            text: 'Я хочу сыграть \nс тобой в игру!'
+            text_align: "center"
+            font_size: 32
+
+        Spinner:
+            id: spinner_id
+            text: "Выберите направление"
+            font_size: 24
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.5
+            background_normal : ''
+            background_color: '5ED05B'
+            values: ["УЧИСЬ И ПОЗНАВАЙ!", "ДЕРЗАЙ И ОТКРЫВАЙ!", "НАЙДИ ПРИЗВАНИЕ!","СЛУЖИ ОТЕЧЕСТВУ!"]
+            option_cls: Factory.get("MySpinnerOption")
+            on_text: root.spinner_clicked(spinner_id.text)
+
+        Button:
+            text: 'Создать команду'
+            font_size: 24
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.5
+            background_normal : ''
+            background_color: '5ED05B'
+            on_press: root.create_team()
+
+        Label:
+            id:1
+
+        Label:
+            text: 'Номер команды'
+            halign: 'center'
+            font_size: 22
+            text_size: root.width-20, 20
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.5
+        TextInput:
+            id: id_team
+            multiline:False
+            font_size: 32
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.5
+
+        Button:
+            text: 'Подключиться'
+            font_size: 24
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.5
+            background_normal : ''
+            background_color: '5ED05B'
+            on_press: root.to_team(id_team.text)
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                id:1
+            Button:
+                text: "Выйти"
+                font_size: 24
+                background_normal : ''
+                background_color: 'DD7A7A'
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1
+                on_press: root.disconnect()

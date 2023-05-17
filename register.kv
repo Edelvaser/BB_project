@@ -1,0 +1,83 @@
+<Register>:
+    BoxLayout
+        id: reg_layout
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 25
+
+        Label:
+            text: 'Для регистрации \nзаполните все поля'
+            align: 'center'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'E-Mail'
+                font_size: 18
+                halign: 'center'
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 30
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Пароль'
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+
+            TextInput:
+                id: password
+                multiline:False
+                password:True
+                font_size: 30
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Повторите пароль'
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+
+            TextInput:
+                id: rep_pass
+                multiline:False
+                password:True
+                font_size: 30
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1
+
+        Button:
+            text: 'Регистрация'
+            font_size: 24
+            pos_hint : {"x" : 0.05, "top" : 1}
+            size_hint : 0.9, 0.6
+            background_color: '5ED05B'
+            background_normal : ''
+            on_press: root.do_reg(login.text, password.text, rep_pass.text)
+
+        Button:
+            text: 'Назад'
+            font_size: 24
+            background_color: '5ED05B'
+            background_normal : ''
+            pos_hint : {"x" : 0.05, "top" : 1}
+            size_hint : 0.9, 0.6
+            on_press: root.goto_login()

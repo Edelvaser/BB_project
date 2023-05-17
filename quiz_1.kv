@@ -1,0 +1,53 @@
+# <MySpinnerOption@SpinnerOption>:
+#     background_color: color_button if self.state == 'down' else color_button_pressed
+#     # background_down: 'atlas://data/images/defaulttheme/button'
+#     color: color_font
+#: import Window kivy.core.window.Window
+
+<Quiz_1>:
+    BoxLayout:
+        id: pers_acc
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 25
+
+        # Label:
+        #     id: 11
+        Label:
+            id: id_quest
+
+        Label:
+            id: text_quest
+            text: 'Вопрос 1'
+            font_size: 22
+            align: "center"
+            multiline:True
+            text_size: Window.width - dp(25), None
+
+        Label:
+            id: 11
+
+        TextInput:
+            id: id_answer
+            multiline:False
+            font_size: 32
+            pos_hint : {"x" : 0.05, "top" : 0.5}
+            size_hint : 0.9, 0.9
+
+        Button:
+            text: "Ответить"
+            font_size: 24
+            background_color: '5ED05B'
+            background_normal : ''
+            pos_hint : {"x" : 0.05, "top" : 1}
+            size_hint : 0.9, 0.6
+            on_press: root.set_answer(id_answer.text, id_quest.text)
+
+        Button:
+            text: "Назад"
+            font_size: 24
+            background_normal : ''
+            background_color: 'DD7A7A'
+            pos_hint : {"x" : 0.05, "top" : 1}
+            size_hint : 0.9, 0.6
+            on_press: root.disconnect()

@@ -1,0 +1,38 @@
+# <MySpinnerOption@SpinnerOption>:
+#     background_color: color_button if self.state == 'down' else color_button_pressed
+#     # background_down: 'atlas://data/images/defaulttheme/button'
+#     color: color_font
+#: import Window kivy.core.window.Window
+
+<Results>:
+    BoxLayout:
+        id: results
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 25
+
+        # Label:
+        #     id: 11
+        Label:
+            id: 11
+
+        Label:
+            id: results
+            text: ''
+            font_size: 22
+            align: "center"
+            multiline:True
+            # text_size: Window.width - dp(25), None
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                id: 11
+            Button:
+                text: "Назад"
+                font_size: 24
+                background_normal : ''
+                background_color: 'DD7A7A'
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.6
+                on_press: root.disconnect()

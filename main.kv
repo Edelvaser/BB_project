@@ -1,0 +1,75 @@
+#:include connected.kv
+#:include register.kv
+#:include quiz_0.kv
+#:include quiz_1.kv
+#:include start_quiz.kv
+#:include over.kv
+
+<Login>:
+    BoxLayout:
+        id: login_layout
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 25
+
+        Label:
+            text: 'Добро пожаловать!'
+            font_size: 32
+
+        BoxLayout:
+            orientation: 'vertical'
+
+            Label:
+                text: 'E-Mail'
+                font_size: 18
+                halign: 'center'
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1
+
+            TextInput:
+                id: login
+                multiline:False
+                font_size: 32
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1.5
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Пароль'
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+
+            TextInput:
+                id: password
+                multiline:False
+                password:True
+                font_size: 32
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 1.5
+
+        Button:
+            text: 'Войти'
+            font_size: 24
+            pos_hint : {"x" : 0.05, "top" : 1}
+            size_hint : 0.9, 0.6
+            background_normal : ''
+            background_color: '5ED05B'
+            on_press: root.do_login(login.text, password.text)
+
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: 'Регистрация'
+                font_size: 24
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.6
+                background_normal : ''
+                background_color: '5ED05B'
+                on_press: root.goto_reg()
+            Label:
+                id:1

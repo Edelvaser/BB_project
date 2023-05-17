@@ -1,0 +1,90 @@
+# <MySpinnerOption@SpinnerOption>:
+#     background_color: color_button if self.state == 'down' else color_button_pressed
+#     # background_down: 'atlas://data/images/defaulttheme/button'
+#     color: color_font
+
+<StartQuiz>:
+    BoxLayout:
+        id: pers_acc
+        orientation: 'vertical'
+        padding: [10,10,10,10]
+        spacing: 25
+
+        Label:
+            text: 'Ожидаем игроков!\nКак будете уверены, \nчто все подключились.\nСтартуйте игру.'
+            font_size: 26
+            halign: 'center'
+
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Номер команды'
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+            Label:
+                id: id_team
+                text: 'Номер команды'
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+            Label:
+                id: id_subject
+                text: ''
+                halign: 'center'
+                font_size: 18
+                text_size: root.width-20, 20
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.9
+        # BoxLayout:
+        #     Label:
+        #         id: user_1
+        #         text: 'Ждем 1-го'
+        #         halign: 'center'
+        #         font_size: 18
+        #         text_size: root.width-20, 20
+        #         pos_hint : {"x" : 0.05, "top" : 1}
+        #         size_hint : 0.9, 0.9
+        #     Label:
+        #         id: user_2
+        #         text: 'Ждем 2-го'
+        #         halign: 'center'
+        #         font_size: 18
+        #         text_size: root.width-20, 20
+        #         pos_hint : {"x" : 0.05, "top" : 1}
+        #         size_hint : 0.9, 0.9
+
+        #     Label:
+        #         id: user_3
+        #         text: 'Ждем 3-го'
+        #         halign: 'center'
+        #         font_size: 18
+        #         text_size: root.width-20, 20
+        #         pos_hint : {"x" : 0.05, "top" : 1}
+        #         size_hint : 0.9, 0.9
+
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: "Начать"
+                font_size: 24
+                background_normal : ''
+                background_color: '5ED05B'
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.6
+                on_press: root.ready()
+
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                text: "Назад"
+                font_size: 24
+                background_normal : ''
+                background_color: 'DD7A7A'
+                pos_hint : {"x" : 0.05, "top" : 1}
+                size_hint : 0.9, 0.6
+                on_press: root.disconnect()
